@@ -7,73 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Variables de color integradas para el cuestionario */
-        :root {
-            --color-text-primary: #0f172a;
-            --color-text-secondary: #475569;
-            --color-text-tertiary: #64748b;
-            --color-background-primary: #ffffff;
-            --color-background-secondary: #f8fafc;
-            --color-background-tertiary: #f1f5f9;
-            --color-background-info: #eff6ff;
-            --color-border-primary: #3b82f6;
-            --color-border-secondary: #cbd5e1;
-            --color-border-tertiary: #e2e8f0;
-            --color-border-info: #bfdbfe;
-            --color-text-info: #1d4ed8;
-            --border-radius-lg: 16px;
-        }
-
         body { font-family: 'Inter', sans-serif; }
-        
-        /* Estilos originales del cuestionario */
-        .wrap { padding: 1rem 0; color: var(--color-text-primary); }
-        h2 { font-size: 18px; font-weight: 600; margin: 0 0 4px; color: var(--color-text-primary); }
-        .subtitle { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 20px; }
-        .section { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 20px; margin-bottom: 16px; border: 1px solid var(--color-border-tertiary); box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-        .section-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--color-text-info); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-        .q { margin-bottom: 24px; }
-        .q:last-child { margin-bottom: 0; }
-        .q-num { font-size: 11px; font-weight: 600; color: white; background: var(--color-text-tertiary); padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 6px; }
-        .q-text { font-size: 14px; color: var(--color-text-primary); margin-bottom: 12px; font-weight: 500; line-height: 1.5; }
-        .badge { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 7px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
-        .badge-new { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
-        .likert { display: flex; gap: 6px; flex-wrap: wrap; }
-        .likert-item { flex: 1; min-width: 60px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
-        .likert-item input[type=radio] { display: none; }
-        .likert-item label { width: 100%; text-align: center; font-size: 11px; line-height: 1.3; color: var(--color-text-secondary); cursor: pointer; padding: 10px 4px; border: 1px solid var(--color-border-secondary); border-radius: 8px; background: var(--color-background-primary); transition: all .2s; display: block; }
-        .likert-item input:checked + label { background: var(--color-background-info); border-color: var(--color-border-primary); color: var(--color-text-info); font-weight: 600; box-shadow: 0 0 0 1px var(--color-border-primary); }
-        .likert-item label:hover { border-color: var(--color-border-primary); }
-        .opt { display: flex; flex-direction: column; gap: 8px; }
-        .opt label { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--color-text-primary); cursor: pointer; padding: 10px 12px; border: 1px solid var(--color-border-secondary); border-radius: 8px; background: var(--color-background-primary); transition: all .2s; }
-        .opt label:hover { border-color: var(--color-border-primary); }
-        .opt input[type=radio]:checked + label, .opt label:has(input:checked) { background: var(--color-background-info); border-color: var(--color-border-primary); color: var(--color-text-info); font-weight: 500; }
-        .opt input[type=radio], .opt input[type=checkbox] { display: none; }
-        input[type=text], input[type=number] { width: 100%; padding: 10px 12px; border: 1px solid var(--color-border-secondary); border-radius: 8px; font-size: 13px; background: var(--color-background-primary); color: var(--color-text-primary); outline: none; transition: border-color .2s; }
-        input[type=text]:focus, input[type=number]:focus { border-color: var(--color-border-primary); box-shadow: 0 0 0 3px var(--color-background-info); }
-        .inline-inputs { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-        .inline-inputs span { font-size: 13px; color: var(--color-text-secondary); white-space: nowrap; font-weight: 500; }
-        .inline-inputs input { width: 100px; }
-        .divider { height: 1px; background: var(--color-border-tertiary); margin: 20px 0; }
-        .anchors { display: flex; justify-content: space-between; font-size: 10px; font-weight: 500; color: var(--color-text-tertiary); margin-top: 6px; padding: 0 4px; text-transform: uppercase; letter-spacing: 0.05em; }
-        .note { font-size: 11px; color: var(--color-text-secondary); background: var(--color-background-tertiary); border-radius: 6px; padding: 8px 12px; margin-top: 10px; }
-        
-        /* Animaciones para transición suave */
         .fade-in { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col justify-between text-slate-900 overflow-x-hidden bg-slate-900">
 
     <div class="fixed inset-0 z-0">
         <img src="./Piloto.png" alt="Fondo Dron Agrícola" class="w-full h-full object-cover object-center">
-        <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-[2px]"></div>
+        <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-[3px]"></div>
     </div>
 
     <div class="relative z-10 min-h-screen flex flex-col">
         
         <header class="w-full mx-auto px-4 pt-4 pb-2 flex justify-center items-center sticky top-0 z-50">
-            <div class="flex items-center gap-3 sm:gap-6 bg-white/95 p-2 px-4 sm:px-5 rounded-2xl shadow-lg backdrop-blur-md">
+            <div class="flex items-center gap-3 sm:gap-6 bg-white/95 p-2 px-4 sm:px-5 rounded-2xl shadow-xl backdrop-blur-md">
                 <img src="./Logo_chapingo_sin_fondo.jpg" alt="Universidad Autónoma Chapingo" class="h-16 sm:h-20 w-auto object-contain">
                 <div class="h-10 w-[1px] bg-slate-200"></div>
                 <img src="./GRIS.png" alt="Posgrado CIESTAAM" class="h-9 sm:h-11 w-auto object-contain">
@@ -85,30 +34,29 @@
                 <span class="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-300 text-[10px] sm:text-xs px-3 py-1 rounded-full font-medium mb-3 border border-emerald-400/30 backdrop-blur-md shadow-sm">
                     🔒 Información 100% Confidencial
                 </span>
-                
                 <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2 leading-tight drop-shadow-md">
                     Transferencia Tecnológica en <br>
                     <span class="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">Drones Agrícolas</span>
                 </h1>
                 <p class="text-slate-200 text-xs sm:text-sm leading-relaxed max-w-sm mx-auto drop-shadow-sm">
-                    Investigación enfocada en ciencia, sociedad, tecnología e innovación en el sector rural.
+                    Investigación enfocada en ciencia, sociedad, tecnología e innovación en el sector rural mexicano.
                 </p>
             </div>
 
             <div class="w-full mt-2">
-                <div class="bg-white/95 backdrop-blur-md border border-white/10 rounded-2xl p-5 shadow-2xl">
-                    <div class="text-center sm:text-left">
+                <div class="bg-white/95 backdrop-blur-md border border-white/10 rounded-3xl p-6 shadow-2xl">
+                    <div class="text-center sm:text-left border-b border-slate-100 pb-4 mb-4">
                         <span class="text-[9px] font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded">Cuestionario Principal</span>
-                        <h2 class="text-lg sm:text-xl font-bold text-slate-900 mt-1 mb-0.5">Maquiladores / Operadores</h2>
-                        <p class="text-slate-500 text-xs mb-4">Dirigido a prestadores de servicios de aplicación aérea, operadores independientes y usuarios finales.</p>
+                        <h2 class="text-xl font-bold text-slate-900 mt-2 mb-1">Maquiladores / Operadores</h2>
+                        <p class="text-slate-500 text-xs">Dirigido a prestadores de servicios de aplicación aérea y usuarios finales.</p>
                     </div>
                     
-                    <div class="flex flex-col sm:flex-row items-center gap-4 border-t border-slate-100 pt-3.5">
-                        <div class="flex gap-2 text-[10px] sm:text-xs font-medium text-slate-400">
-                            <span class="bg-slate-50 px-2.5 py-0.5 rounded">📋 36 Preguntas</span>
-                            <span class="bg-slate-50 px-2.5 py-0.5 rounded">⏱ ~15 min</span>
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <div class="flex gap-2 text-[10px] sm:text-xs font-medium text-slate-500">
+                            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">📋 36 Preguntas</span>
+                            <span class="bg-slate-100 px-2.5 py-1 rounded-lg">⏱ ~15 min</span>
                         </div>
-                        <button onclick="iniciarCuestionario()" class="w-full sm:w-auto sm:flex-grow text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm py-3 px-4 rounded-xl transition-all shadow-md shadow-blue-200/50 cursor-pointer">
+                        <button onclick="iniciarCuestionario()" class="w-full sm:w-auto sm:flex-grow text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm py-3 px-4 rounded-xl transition-all shadow-lg shadow-blue-600/30">
                             Iniciar Cuestionario →
                         </button>
                     </div>
@@ -117,432 +65,156 @@
         </main>
 
         <main id="vista-cuestionario" class="w-full max-w-3xl mx-auto px-4 py-6 hidden">
-            <div class="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 sm:p-8 border border-white/20 fade-in">
+            <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 fade-in overflow-hidden">
                 
-                <form action="ACTION_URL" method="POST" id="survey-form">
+                <div class="bg-slate-50 p-6 sm:p-8 border-b border-slate-200">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">Instrumento de investigación</h2>
+                    <p class="text-sm text-slate-500">Por favor, responda con honestidad. Los datos serán procesados estadísticamente y no se publicará información individual.</p>
+                </div>
+
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+                <form action="PEGA_TU_NUEVO_ENLACE_AQUI" method="POST" id="survey-form" target="hidden_iframe" onsubmit="alert('¡Muchísimas gracias! Tus respuestas han sido enviadas y guardadas en el Excel exitosamente.'); location.reload();">
                     
-                    <div class="wrap">
-                        <h2>Instrumento de investigación — Drones agrícolas</h2>
-                        <p class="subtitle">Por favor, responda con honestidad. Los datos serán procesados estadísticamente y no se publicará información individual.</p>
+                    <div class="p-6 sm:p-8 space-y-10">
 
-                        <div class="section">
-                            <div class="section-title">I · Perfil del usuario</div>
+                        <div class="space-y-6">
+                            <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest border-b border-blue-100 pb-2 flex items-center gap-2">
+                                <span class="text-lg">👤</span> I · Perfil del usuario
+                            </h3>
 
-                            <div class="q"><div class="q-num">P1</div><div class="q-text">Nombre completo</div><input type="text" name="nombre" placeholder="Escriba su nombre..." required></div>
-                            <div class="divider"></div>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-1"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P1</span> Nombre completo</label>
+                                    <input type="text" name="nombre" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none p-3 shadow-sm transition-all" placeholder="Escriba su nombre..." required>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P2</span> Género</label>
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                        <label class="flex items-center p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500 transition-all">
+                                            <input type="radio" name="genero" value="Masculino" class="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500">
+                                            <span class="ml-2 text-sm font-medium text-slate-700">Masculino</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500 transition-all">
+                                            <input type="radio" name="genero" value="Femenino" class="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500">
+                                            <span class="ml-2 text-sm font-medium text-slate-700">Femenino</span>
+                                        </label>
+                                        <label class="flex items-center p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 has-[:checked]:bg-blue-50 has-[:checked]:border-blue-500 transition-all">
+                                            <input type="radio" name="genero" value="Prefiero no decirlo" class="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500">
+                                            <span class="ml-2 text-sm font-medium text-slate-700">Prefiero no decirlo</span>
+                                        </label>
+                                    </div>
+                                </div>
 
-                            <div class="q">
-                            <div class="q-num">P2</div><div class="q-text">Género</div>
-                            <div class="opt">
-                                <label for="p2a"><input type="radio" name="genero" value="Masculino" id="p2a"> Masculino</label>
-                                <label for="p2b"><input type="radio" name="genero" value="Femenino" id="p2b"> Femenino</label>
-                                <label for="p2c"><input type="radio" name="genero" value="Prefiero no decirlo" id="p2c"> Prefiero no decirlo</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-800 mb-1"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P3</span> Edad</label>
+                                        <div class="flex items-center gap-2">
+                                            <input type="number" name="edad" class="w-24 bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none p-3 shadow-sm transition-all" placeholder="Ej: 35">
+                                            <span class="text-sm text-slate-500 font-medium">años</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-800 mb-1"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P4</span> Escolaridad</label>
+                                        <input type="text" name="escolaridad" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none p-3 shadow-sm transition-all" placeholder="Ej: Licenciatura">
+                                    </div>
+                                </div>
 
-                            <div class="q"><div class="q-num">P3</div><div class="q-text">Edad</div><div class="inline-inputs"><input type="number" name="edad" placeholder="Ej: 35" required><span>años</span></div></div>
-                            <div class="divider"></div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-1"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P5</span> Estado y municipio</label>
+                                    <input type="text" name="ubicacion" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none p-3 shadow-sm transition-all" placeholder="Ej: Sinaloa, Culiacán">
+                                </div>
 
-                            <div class="q"><div class="q-num">P4</div><div class="q-text">Escolaridad</div><input type="text" name="escolaridad" placeholder="Ej: Secundaria, Licenciatura..." required></div>
-                            <div class="divider"></div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P6</span> Cultivos en los que usa el drone</label>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center gap-3"><span class="w-20 text-xs font-medium text-slate-500">Principal:</span><input type="text" name="cultivo1" class="flex-1 bg-white border border-slate-300 text-sm rounded-lg outline-none p-2 focus:border-blue-500"></div>
+                                        <div class="flex items-center gap-3"><span class="w-20 text-xs font-medium text-slate-500">Secundario:</span><input type="text" name="cultivo2" class="flex-1 bg-white border border-slate-300 text-sm rounded-lg outline-none p-2 focus:border-blue-500"></div>
+                                        <div class="flex items-center gap-3"><span class="w-20 text-xs font-medium text-slate-500">Terciario:</span><input type="text" name="cultivo3" class="flex-1 bg-white border border-slate-300 text-sm rounded-lg outline-none p-2 focus:border-blue-500"></div>
+                                    </div>
+                                </div>
 
-                            <div class="q"><div class="q-num">P5</div><div class="q-text">Estado y municipio</div><input type="text" name="ubicacion" placeholder="Ej: Sinaloa, Culiacán" required></div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P6</div><div class="q-text">Cultivos en los que usa el drone</div>
-                            <div class="inline-inputs">
-                                <span>Principal:</span><input type="text" name="cultivo1" placeholder="">
-                                <span>Secundario:</span><input type="text" name="cultivo2" placeholder="">
-                                <span>Terciario:</span><input type="text" name="cultivo3" placeholder="">
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P7</div><div class="q-text">¿Cuántos años lleva realizando esta actividad?</div><div class="inline-inputs"><input type="number" name="experiencia_anios" placeholder="0"><span>años</span></div></div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P8</div><div class="q-text">Promedio de hectáreas que trabaja por mes</div><div class="inline-inputs"><input type="number" name="ha_mes" placeholder="0"><span>ha/mes</span></div></div>
-                        </div>
-
-                        <div class="section">
-                            <div class="section-title">II · Adopción de innovaciones</div>
-
-                            <div class="q">
-                            <div class="q-num">P9</div>
-                            <div class="q-text">Cuando compré mi primer drone, la tecnología en mi zona era…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p9_adopcion1" value="1" id="p9a"><label for="p9a">1<br>Yo fui el primero, nadie la conocía</label></div>
-                                <div class="likert-item"><input type="radio" name="p9_adopcion1" value="2" id="p9b"><label for="p9b">2<br>Muy pocos la tenían</label></div>
-                                <div class="likert-item"><input type="radio" name="p9_adopcion1" value="3" id="p9c"><label for="p9c">3<br>Empezaba a verse en varios ranchos</label></div>
-                                <div class="likert-item"><input type="radio" name="p9_adopcion1" value="4" id="p9d"><label for="p9d">4<br>Era común y estaba probada</label></div>
-                                <div class="likert-item"><input type="radio" name="p9_adopcion1" value="5" id="p9e"><label for="p9e">5<br>Todos la usaban ya</label></div>
-                            </div>
-                            <div class="anchors"><span>Innovador</span><span>Rezagado</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P10</div>
-                            <div class="q-text">Si mañana sale un drone completamente nuevo sin probar, yo…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p10_adopcion2" value="1" id="p10a"><label for="p10a">1<br>Lo compro de inmediato</label></div>
-                                <div class="likert-item"><input type="radio" name="p10_adopcion2" value="2" id="p10b"><label for="p10b">2<br>Me espero unos meses a ver resultados</label></div>
-                                <div class="likert-item"><input type="radio" name="p10_adopcion2" value="3" id="p10c"><label for="p10c">3<br>Espero que sea adoptado por varios</label></div>
-                                <div class="likert-item"><input type="radio" name="p10_adopcion2" value="4" id="p10d"><label for="p10d">4<br>Espero un par de años</label></div>
-                                <div class="likert-item"><input type="radio" name="p10_adopcion2" value="5" id="p10e"><label for="p10e">5<br>Solo lo compro cuando sea barato y seguro</label></div>
-                            </div>
-                            <div class="anchors"><span>Muy innovador</span><span>Muy conservador</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P11 <span class="badge badge-new">Nueva</span></div>
-                            <div class="q-text">¿Qué tanto influye la opinión de otros productores en su decisión de comprar tecnología nueva?</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p11_influencia" value="1" id="p11na"><label for="p11na">1<br>Nada, decido solo</label></div>
-                                <div class="likert-item"><input type="radio" name="p11_influencia" value="2" id="p11nb"><label for="p11nb">2<br>Poco</label></div>
-                                <div class="likert-item"><input type="radio" name="p11_influencia" value="3" id="p11nc"><label for="p11nc">3<br>Moderadamente</label></div>
-                                <div class="likert-item"><input type="radio" name="p11_influencia" value="4" id="p11nd"><label for="p11nd">4<br>Bastante</label></div>
-                                <div class="likert-item"><input type="radio" name="p11_influencia" value="5" id="p11ne"><label for="p11ne">5<br>Totalmente determinante</label></div>
-                            </div>
-                            <div class="anchors"><span>Sin influencia</span><span>Muy alta influencia</span></div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-800 mb-1"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P7</span> Años en la actividad</label>
+                                        <div class="flex items-center gap-2">
+                                            <input type="number" name="experiencia_anios" class="w-24 bg-white border border-slate-300 text-sm rounded-xl p-3 shadow-sm outline-none focus:border-blue-500" placeholder="0">
+                                            <span class="text-sm text-slate-500 font-medium">años</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold text-slate-800 mb-1"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P8</span> Promedio trabajado</label>
+                                        <div class="flex items-center gap-2">
+                                            <input type="number" name="ha_mes" class="w-24 bg-white border border-slate-300 text-sm rounded-xl p-3 shadow-sm outline-none focus:border-blue-500" placeholder="0">
+                                            <span class="text-sm text-slate-500 font-medium">ha/mes</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="section">
-                            <div class="section-title">III · Soporte técnico</div>
+                        <div class="space-y-6">
+                            <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest border-b border-blue-100 pb-2 flex items-center gap-2">
+                                <span class="text-lg">🚀</span> II · Adopción de innovaciones
+                            </h3>
 
-                            <div class="q">
-                            <div class="q-num">P12</div>
-                            <div class="q-text">¿Cuenta con esquema de soporte técnico continuo de la marca o distribuidor?</div>
-                            <div class="opt">
-                                <label for="p12a"><input type="radio" name="p12_soporte" value="Si" id="p12a"> Sí</label>
-                                <label for="p12b"><input type="radio" name="p12_soporte" value="No" id="p12b"> No</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P13</div>
-                            <div class="q-text">En caso de falla, ¿a quién acude principalmente?</div>
-                            <div class="opt">
-                                <label for="p13a"><input type="radio" name="p13_falla" value="Distribuidor original" id="p13a"> Al distribuidor autorizado donde compré el equipo</label>
-                                <label for="p13b"><input type="radio" name="p13_falla" value="Otro distribuidor" id="p13b"> A otro distribuidor autorizado</label>
-                                <label for="p13c"><input type="radio" name="p13_falla" value="Taller independiente" id="p13c"> A un taller independiente o técnico particular</label>
-                                <label for="p13d"><input type="radio" name="p13_falla" value="Propias manos" id="p13d"> Yo mismo realizo las reparaciones</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P13.1</div>
-                            <div class="q-text">Si usa técnico independiente, la razón principal es…</div>
-                            <div class="opt">
-                                <label for="p131a"><input type="radio" name="p131_razon" value="Costo menor" id="p131a"> El costo es menor</label>
-                                <label for="p131b"><input type="radio" name="p131_razon" value="Más rápido" id="p131b"> El tiempo de reparación es más rápido</label>
-                                <label for="p131c"><input type="radio" name="p131_razon" value="Trato cercano" id="p131c"> El trato es más cercano y personalizado</label>
-                                <label for="p131d"><input type="radio" name="p131_razon" value="Tienen refacciones" id="p131d"> Tienen refacciones que el distribuidor oficial no tiene</label>
-                                <label for="p131e"><input type="radio" name="p131_razon" value="Oficial lejos" id="p131e"> El taller oficial me queda muy lejos</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P14</div>
-                            <div class="q-text">Cuando contacto a la marca/distribuidor con un problema, la rapidez de respuesta efectiva es…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p14_rapidez" value="1" id="p14a"><label for="p14a">1<br>Al momento</label></div>
-                                <div class="likert-item"><input type="radio" name="p14_rapidez" value="2" id="p14b"><label for="p14b">2<br>El mismo día</label></div>
-                                <div class="likert-item"><input type="radio" name="p14_rapidez" value="3" id="p14c"><label for="p14c">3<br>Varios días</label></div>
-                                <div class="likert-item"><input type="radio" name="p14_rapidez" value="4" id="p14d"><label for="p14d">4<br>Más de una semana</label></div>
-                                <div class="likert-item"><input type="radio" name="p14_rapidez" value="5" id="p14e"><label for="p14e">5<br>Casi nunca contestan</label></div>
-                            </div>
-                            <div class="anchors"><span>Muy rápido</span><span>Sin respuesta</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P15</div>
-                            <div class="q-text">La capacidad técnica del personal que me atiende para resolver dudas complejas es…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p15_capacidad" value="1" id="p15a"><label for="p15a">1<br>Muy alta</label></div>
-                                <div class="likert-item"><input type="radio" name="p15_capacidad" value="2" id="p15b"><label for="p15b">2<br>Alta</label></div>
-                                <div class="likert-item"><input type="radio" name="p15_capacidad" value="3" id="p15c"><label for="p15c">3<br>Media</label></div>
-                                <div class="likert-item"><input type="radio" name="p15_capacidad" value="4" id="p15d"><label for="p15d">4<br>Baja</label></div>
-                                <div class="likert-item"><input type="radio" name="p15_capacidad" value="5" id="p15e"><label for="p15e">5<br>Muy baja o nula</label></div>
-                            </div>
-                            <div class="anchors"><span>Muy alta</span><span>Nula</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P16</div>
-                            <div class="q-text">Después de una reparación, el seguimiento post-servicio por parte del proveedor es…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p16_seguimiento" value="1" id="p16a"><label for="p16a">1<br>Siempre da seguimiento</label></div>
-                                <div class="likert-item"><input type="radio" name="p16_seguimiento" value="2" id="p16b"><label for="p16b">2<br>Ocasionalmente pregunta</label></div>
-                                <div class="likert-item"><input type="radio" name="p16_seguimiento" value="3" id="p16c"><label for="p16c">3<br>Solo si yo llamo</label></div>
-                                <div class="likert-item"><input type="radio" name="p16_seguimiento" value="4" id="p16d"><label for="p16d">4<br>Raramente</label></div>
-                                <div class="likert-item"><input type="radio" name="p16_seguimiento" value="5" id="p16e"><label for="p16e">5<br>Nunca</label></div>
-                            </div>
-                            <div class="anchors"><span>Excelente seguimiento</span><span>Sin seguimiento</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P17</div><div class="q-text">Distancia al taller de servicio más cercano</div><div class="inline-inputs"><input type="number" name="p17_distancia" placeholder="0"><span>km</span></div></div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P18</div>
-                            <div class="q-text">Si se rompe una pieza, conseguirla es…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p18_piezas" value="1" id="p18a"><label for="p18a">1<br>Muy fácil</label></div>
-                                <div class="likert-item"><input type="radio" name="p18_piezas" value="2" id="p18b"><label for="p18b">2<br>Fácil</label></div>
-                                <div class="likert-item"><input type="radio" name="p18_piezas" value="3" id="p18c"><label for="p18c">3<br>Neutral</label></div>
-                                <div class="likert-item"><input type="radio" name="p18_piezas" value="4" id="p18d"><label for="p18d">4<br>Difícil</label></div>
-                                <div class="likert-item"><input type="radio" name="p18_piezas" value="5" id="p18e"><label for="p18e">5<br>Muy difícil</label></div>
-                            </div>
-                            <div class="anchors"><span>Muy fácil</span><span>Muy difícil</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P19</div>
-                            <div class="q-text">He adquirido refacciones en plataformas externas (Amazon, AliExpress, etc.) por falta de stock en mi distribuidor…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p19_externas" value="1" id="p19a"><label for="p19a">1<br>Nunca, siempre oficial</label></div>
-                                <div class="likert-item"><input type="radio" name="p19_externas" value="2" id="p19b"><label for="p19b">2<br>Raramente</label></div>
-                                <div class="likert-item"><input type="radio" name="p19_externas" value="3" id="p19c"><label for="p19c">3<br>Algunas veces</label></div>
-                                <div class="likert-item"><input type="radio" name="p19_externas" value="4" id="p19d"><label for="p19d">4<br>Solo en emergencias</label></div>
-                                <div class="likert-item"><input type="radio" name="p19_externas" value="5" id="p19e"><label for="p19e">5<br>Frecuentemente</label></div>
-                            </div>
-                            <div class="anchors"><span>Nunca</span><span>Frecuentemente</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P20</div><div class="q-text">Número de fallas en el último año</div><div class="inline-inputs"><input type="number" name="p20_fallas" placeholder="0"><span>fallas</span></div></div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P21</div><div class="q-text">Días desde que reporta la falla hasta recibir diagnóstico</div><div class="inline-inputs"><input type="number" name="p21_diasdiag" placeholder="0"><span>días</span></div></div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P22</div><div class="q-text">Semanas que estuvo el drone sin volar en su última falla grave</div><div class="inline-inputs"><input type="number" name="p22_semanas" placeholder="0"><span>semanas</span></div></div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P23</div><div class="q-text">Días de trabajo perdidos este año por drone en taller o esperando respuesta</div><div class="inline-inputs"><input type="number" name="p23_diasperdidos" placeholder="0"><span>días</span></div></div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P24</div>
-                            <div class="q-text">Cuando el drone está en taller, usted…</div>
-                            <div class="opt">
-                                <label for="p24a"><input type="radio" name="p24_alternativa" value="Pago maquila externa" id="p24a"> Pago maquila externa</label>
-                                <label for="p24b"><input type="radio" name="p24_alternativa" value="Tractor o avioneta" id="p24b"> Aplico con tractor, avioneta o a mano</label>
-                                <label for="p24c"><input type="radio" name="p24_alternativa" value="Espero" id="p24c"> Enfrento las consecuencias de la espera</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P25</div>
-                            <div class="q-text">Las pérdidas económicas por demoras en taller han sido…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p25_perdidas" value="1" id="p25a"><label for="p25a">1<br>Ninguna pérdida</label></div>
-                                <div class="likert-item"><input type="radio" name="p25_perdidas" value="2" id="p25b"><label for="p25b">2<br>Menores ($0–$10k/sem)</label></div>
-                                <div class="likert-item"><input type="radio" name="p25_perdidas" value="3" id="p25c"><label for="p25c">3<br>Moderadas ($10k–$25k)</label></div>
-                                <div class="likert-item"><input type="radio" name="p25_perdidas" value="4" id="p25d"><label for="p25d">4<br>Considerables ($25k–$50k)</label></div>
-                                <div class="likert-item"><input type="radio" name="p25_perdidas" value="5" id="p25e"><label for="p25e">5<br>Muy graves (+$50k/sem)</label></div>
-                            </div>
-                            <div class="anchors"><span>Sin pérdida</span><span>Pérdida muy grave</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P26 <span class="badge badge-new">Nueva</span></div>
-                            <div class="q-text">En general, ¿qué tan satisfecho está con el servicio posventa que recibe?</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p26_satisfaccion" value="1" id="p26na"><label for="p26na">1<br>Muy satisfecho</label></div>
-                                <div class="likert-item"><input type="radio" name="p26_satisfaccion" value="2" id="p26nb"><label for="p26nb">2<br>Satisfecho</label></div>
-                                <div class="likert-item"><input type="radio" name="p26_satisfaccion" value="3" id="p26nc"><label for="p26nc">3<br>Neutral</label></div>
-                                <div class="likert-item"><input type="radio" name="p26_satisfaccion" value="4" id="p26nd"><label for="p26nd">4<br>Insatisfecho</label></div>
-                                <div class="likert-item"><input type="radio" name="p26_satisfaccion" value="5" id="p26ne"><label for="p26ne">5<br>Muy insatisfecho</label></div>
-                            </div>
-                            <div class="anchors"><span>Muy satisfecho</span><span>Muy insatisfecho</span></div>
-                            </div>
-                        </div>
-
-                        <div class="section">
-                            <div class="section-title">IV · Capacitación</div>
-
-                            <div class="q">
-                            <div class="q-num">P27</div>
-                            <div class="q-text">La calidad de la capacitación inicial que recibí fue…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p27_calidadcap" value="1" id="p27a"><label for="p27a">1<br>Excelente</label></div>
-                                <div class="likert-item"><input type="radio" name="p27_calidadcap" value="2" id="p27b"><label for="p27b">2<br>Buena</label></div>
-                                <div class="likert-item"><input type="radio" name="p27_calidadcap" value="3" id="p27c"><label for="p27c">3<br>Regular</label></div>
-                                <div class="likert-item"><input type="radio" name="p27_calidadcap" value="4" id="p27d"><label for="p27d">4<br>Mala</label></div>
-                                <div class="likert-item"><input type="radio" name="p27_calidadcap" value="5" id="p27e"><label for="p27e">5<br>Nula / No recibí</label></div>
-                            </div>
-                            <div class="anchors"><span>Excelente</span><span>Nula</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q"><div class="q-num">P28</div><div class="q-text">Total de horas de capacitación recibidas (cursos, talleres, certificaciones)</div><div class="inline-inputs"><input type="number" name="p28_horas" placeholder="0"><span>horas</span></div></div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P29</div>
-                            <div class="q-text">Lo que me enseñaron en los cursos refleja lo que vivo realmente en mi parcela en un…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p29_realidad" value="1" id="p29a"><label for="p29a">1<br>0–25% — Casi nada</label></div>
-                                <div class="likert-item"><input type="radio" name="p29_realidad" value="2" id="p29b"><label for="p29b">2<br>26–50% — Poco</label></div>
-                                <div class="likert-item"><input type="radio" name="p29_realidad" value="3" id="p29c"><label for="p29c">3<br>51–75% — Mitad</label></div>
-                                <div class="likert-item"><input type="radio" name="p29_realidad" value="4" id="p29d"><label for="p29d">4<br>76–90% — Mayoría</label></div>
-                                <div class="likert-item"><input type="radio" name="p29_realidad" value="5" id="p29e"><label for="p29e">5<br>91–100% — Todo</label></div>
-                            </div>
-                            <div class="anchors"><span>Nada práctico</span><span>Totalmente práctico</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P30</div>
-                            <div class="q-text">Profundidad del contenido — ¿Le enseñaron a…? (marque todo lo que aplique)</div>
-                            <div class="opt">
-                                <label><input type="checkbox" name="p30_temas" value="Filtros"> Limpiar los filtros</label>
-                                <label><input type="checkbox" name="p30_temas" value="Sensores"> Calibrar los sensores</label>
-                                <label><input type="checkbox" name="p30_temas" value="Bombas"> Calibrar bombas</label>
-                                <label><input type="checkbox" name="p30_temas" value="Boquillas"> Calibrar boquillas</label>
-                                <label><input type="checkbox" name="p30_temas" value="Baterías"> Cuidados de las baterías</label>
-                                <label><input type="checkbox" name="p30_temas" value="Generador"> Cuidados del generador</label>
-                                <label><input type="checkbox" name="p30_temas" value="Tanque"> Cuidados del tanque de granulados</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P31</div>
-                            <div class="q-text">¿Le explicaron las reglas de aviación (AFAC) y qué hacer en emergencias o choques?</div>
-                            <div class="opt">
-                                <label for="p31a"><input type="radio" name="p31_afac" value="Si" id="p31a"> Sí</label>
-                                <label for="p31b"><input type="radio" name="p31_afac" value="No" id="p31b"> No</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P32</div>
-                            <div class="q-text">Cuando el drone marca un error en pantalla, mi capacidad para resolverlo es…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p32_errores" value="1" id="p32a"><label for="p32a">1<br>Siempre lo resuelvo solo</label></div>
-                                <div class="likert-item"><input type="radio" name="p32_errores" value="2" id="p32b"><label for="p32b">2<br>Casi siempre lo resuelvo</label></div>
-                                <div class="likert-item"><input type="radio" name="p32_errores" value="3" id="p32c"><label for="p32c">3<br>A veces sí, a veces no</label></div>
-                                <div class="likert-item"><input type="radio" name="p32_errores" value="4" id="p32d"><label for="p32d">4<br>Casi siempre necesito ayuda</label></div>
-                                <div class="likert-item"><input type="radio" name="p32_errores" value="5" id="p32e"><label for="p32e">5<br>Siempre necesito técnico</label></div>
-                            </div>
-                            <div class="anchors"><span>Autosuficiente</span><span>Dependiente</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P33 <span class="badge badge-new">Nueva</span></div>
-                            <div class="q-text">¿Qué tan necesaria considera la capacitación continua para operar bien el drone?</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p33n_continua" value="1" id="p33na"><label for="p33na">1<br>Nada necesaria</label></div>
-                                <div class="likert-item"><input type="radio" name="p33n_continua" value="2" id="p33nb"><label for="p33nb">2<br>Poco necesaria</label></div>
-                                <div class="likert-item"><input type="radio" name="p33n_continua" value="3" id="p33nc"><label for="p33nc">3<br>Moderadamente</label></div>
-                                <div class="likert-item"><input type="radio" name="p33n_continua" value="4" id="p33nd"><label for="p33nd">4<br>Necesaria</label></div>
-                                <div class="likert-item"><input type="radio" name="p33n_continua" value="5" id="p33ne"><label for="p33ne">5<br>Muy necesaria</label></div>
-                            </div>
-                            <div class="anchors"><span>Nada necesaria</span><span>Muy necesaria</span></div>
-                            </div>
-                        </div>
-
-                        <div class="section">
-                            <div class="section-title">V · Barreras de adopción</div>
-
-                            <div class="q">
-                            <div class="q-num">P34</div>
-                            <div class="q-text">La principal barrera para el uso pleno de esta tecnología es…</div>
-                            <div class="opt">
-                                <label for="p34a"><input type="radio" name="p34_barrera" value="Costo" id="p34a"> Costo</label>
-                                <label for="p34b"><input type="radio" name="p34_barrera" value="Falta de capacitación" id="p34b"> Falta de capacitación</label>
-                                <label for="p34c"><input type="radio" name="p34_barrera" value="Falta de piezas" id="p34c"> Falta de piezas</label>
-                                <label for="p34d"><input type="radio" name="p34_barrera" value="Normatividad" id="p34d"> Normatividad</label>
-                            </div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P35 <span class="badge badge-new">Nueva</span></div>
-                            <div class="q-text">El costo total de poseer y operar el drone comparado con otros métodos de aplicación es…</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p35n_costo" value="1" id="p35na"><label for="p35na">1<br>Mucho más económico</label></div>
-                                <div class="likert-item"><input type="radio" name="p35n_costo" value="2" id="p35nb"><label for="p35nb">2<br>Algo más económico</label></div>
-                                <div class="likert-item"><input type="radio" name="p35n_costo" value="3" id="p35nc"><label for="p35nc">3<br>Similar</label></div>
-                                <div class="likert-item"><input type="radio" name="p35n_costo" value="4" id="p35nd"><label for="p35nd">4<br>Algo más caro</label></div>
-                                <div class="likert-item"><input type="radio" name="p35n_costo" value="5" id="p35ne"><label for="p35ne">5<br>Mucho más caro</label></div>
-                            </div>
-                            <div class="anchors"><span>Mucho más económico</span><span>Mucho más caro</span></div>
-                            </div>
-                            <div class="divider"></div>
-
-                            <div class="q">
-                            <div class="q-num">P36 <span class="badge badge-new">Nueva</span></div>
-                            <div class="q-text">¿Qué tan probable es que recomiende el uso de drones agrícolas a otros productores?</div>
-                            <div class="likert">
-                                <div class="likert-item"><input type="radio" name="p36n_nps" value="1" id="p36na"><label for="p36na">1<br>Muy probable</label></div>
-                                <div class="likert-item"><input type="radio" name="p36n_nps" value="2" id="p36nb"><label for="p36nb">2<br>Probable</label></div>
-                                <div class="likert-item"><input type="radio" name="p36n_nps" value="3" id="p36nc"><label for="p36nc">3<br>Neutral</label></div>
-                                <div class="likert-item"><input type="radio" name="p36n_nps" value="4" id="p36nd"><label for="p36nd">4<br>Poco probable</label></div>
-                                <div class="likert-item"><input type="radio" name="p36n_nps" value="5" id="p36ne"><label for="p36ne">5<br>Nada probable</label></div>
-                            </div>
-                            <div class="anchors"><span>Muy probable</span><span>Nada probable</span></div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P9</span> Cuando compré mi primer drone, la tecnología en mi zona era…</label>
+                                <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                                    <label class="flex-1 cursor-pointer group">
+                                        <input type="radio" name="p9_adopcion1" value="1" class="peer sr-only">
+                                        <div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 hover:bg-slate-50 transition-all flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5 shadow-sm">
+                                            <span class="text-lg font-bold text-slate-400 group-hover:text-slate-600 peer-checked:text-blue-600">1</span>
+                                            <span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700 leading-snug">Fui el primero, nadie la conocía</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex-1 cursor-pointer group">
+                                        <input type="radio" name="p9_adopcion1" value="2" class="peer sr-only">
+                                        <div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 hover:bg-slate-50 transition-all flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5 shadow-sm">
+                                            <span class="text-lg font-bold text-slate-400 group-hover:text-slate-600 peer-checked:text-blue-600">2</span>
+                                            <span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700 leading-snug">Muy pocos la tenían</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex-1 cursor-pointer group">
+                                        <input type="radio" name="p9_adopcion1" value="3" class="peer sr-only">
+                                        <div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 hover:bg-slate-50 transition-all flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5 shadow-sm">
+                                            <span class="text-lg font-bold text-slate-400 group-hover:text-slate-600 peer-checked:text-blue-600">3</span>
+                                            <span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700 leading-snug">Empezaba a verse en ranchos</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex-1 cursor-pointer group">
+                                        <input type="radio" name="p9_adopcion1" value="4" class="peer sr-only">
+                                        <div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 hover:bg-slate-50 transition-all flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5 shadow-sm">
+                                            <span class="text-lg font-bold text-slate-400 group-hover:text-slate-600 peer-checked:text-blue-600">4</span>
+                                            <span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700 leading-snug">Era común y probada</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex-1 cursor-pointer group">
+                                        <input type="radio" name="p9_adopcion1" value="5" class="peer sr-only">
+                                        <div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 hover:bg-slate-50 transition-all flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5 shadow-sm">
+                                            <span class="text-lg font-bold text-slate-400 group-hover:text-slate-600 peer-checked:text-blue-600">5</span>
+                                            <span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700 leading-snug">Todos la usaban ya</span>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
 
-                            <div class="note">P36 funciona como ítem proxy de Net Promoter Score (NPS) adaptado al contexto agrícola.</div>
-                        </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P10</span> Si mañana sale un drone nuevo sin probar, yo…</label>
+                                <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p10_adopcion2" value="1" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">1</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Lo compro de inmediato</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p10_adopcion2" value="2" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">2</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Espero unos meses a ver resultados</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p10_adopcion2" value="3" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">3</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Espero que sea adoptado por varios</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p10_adopcion2" value="4" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">4</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Espero un par de años</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p10_adopcion2" value="5" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">5</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Solo cuando sea barato y seguro</span></div></label>
+                                </div>
+                            </div>
 
-                        <div class="mt-8 text-center pb-4">
-                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all text-sm w-full sm:w-auto">
-                                Enviar respuestas
-                            </button>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
-        </main>
-
-        <footer class="w-full max-w-5xl mx-auto px-4 py-4 mt-auto border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left z-10 bg-slate-900/50 backdrop-blur-sm">
-            <div>
-                <div class="text-[11px] font-bold text-white tracking-wide">
-                    Ing. Ivette Itzel Avendaño Torres
-                </div>
-                <div class="text-[10px] text-slate-300 font-medium">
-                    Estudiante de Posgrado · CIESTAAM · Universidad Autónoma Chapingo
-                </div>
-            </div>
-            <div>
-                <a href="mailto:tu_correo@ciestaam.edu.mx" class="text-[10px] sm:text-xs font-semibold text-blue-300 hover:text-white bg-white/5 hover:bg-white/10 px-2.5 py-1.5 rounded-lg transition-colors border border-white/10 inline-block">
-                    ✉️ tu_correo@ciestaam.edu.mx
-                </a>
-            </div>
-        </footer>
-
-    </div>
-
-    <script>
-        function iniciarCuestionario() {
-            // Oculta la bienvenida
-            document.getElementById('vista-bienvenida').classList.add('hidden');
-            // Muestra el cuestionario
-            document.getElementById('vista-cuestionario').classList.remove('hidden');
-            // Sube la pantalla al inicio suavemente
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-
-</body>
-</html>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P11</span> ¿Qué tanto influye la opinión de otros productores en su decisión?</label>
+                                <div class="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p11_influencia" value="1" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">1</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Nada, decido solo</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p11_influencia" value="2" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">2</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Poco</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p11_influencia" value="3" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">3</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Moderadamente</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p11_influencia" value="4" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer-checked:bg-blue-50 peer-checked:border-blue-500 flex flex-row sm:flex-col items-center sm:justify-start text-left sm:text-center gap-3 sm:gap-1.5"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">4</span><span class="text-xs font-medium text-slate-500 peer-checked:text-blue-700">Bastante</span></div></label>
+                                    <label class="flex-1 cursor-pointer group"><input type="radio" name="p11_influencia" value="5" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-white peer
