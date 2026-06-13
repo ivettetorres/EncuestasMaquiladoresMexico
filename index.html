@@ -91,9 +91,11 @@
                 </div>
 
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-                <form action="https://script.google.com/macros/s/AKfycbza-4jG7qlhZ2_ApaRVR8-IhrSvdz4S3MH9dp1OyrkzgVmflcY22yW082dMxWJyR1y-/exec" method="POST" id="survey-form" target="hidden_iframe" onsubmit="alert('¡Muchísimas gracias por su participación! Las respuestas se han guardado exitosamente en la base de datos.'); location.reload();">
-                    
-                    <div class="p-6 sm:p-8 space-y-12">
+                 <script>var formularioEnviado = false;</script>
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formularioEnviado){ alert('¡Muchísimas gracias por su participación! Las respuestas se han guardado exitosamente en la base de datos.'); window.scrollTo(0,0); location.reload(); }"></iframe>
+                    <form action="https://script.google.com/macros/s/AKfycbza-4jG7qlhZ2_ApaRVR8-IhrSvdz4S3MH9dp1OyrkzgVmflcY22yW082dMxWJyR1y-/exec" method="POST" id="survey-form" target="hidden_iframe" onsubmit="formularioEnviado = true;">   
+                   
+                        <div class="p-6 sm:p-8 space-y-12">
 
                         <div class="space-y-6">
                             <h3 class="text-sm font-extrabold text-slate-400 uppercase tracking-widest border-b-2 border-slate-200 pb-2 flex items-center gap-2">
