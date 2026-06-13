@@ -8,102 +8,276 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .fade-in { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        .slide-up { animation: slideUp 0.6s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+        /* Oculta las flechas de los inputs numéricos */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
     </style>
 </head>
-<body class="relative min-h-screen flex flex-col justify-between text-slate-900 overflow-x-hidden bg-slate-900">
+<body class="relative min-h-screen flex flex-col justify-between text-slate-900 bg-slate-900 overflow-x-hidden">
 
     <div class="fixed inset-0 z-0">
         <img src="./Piloto.png" alt="Fondo Dron Agrícola" class="w-full h-full object-cover object-center">
-        <div class="absolute inset-0 bg-slate-950/75 backdrop-blur-[4px]"></div>
+        <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
     </div>
 
     <div class="relative z-10 min-h-screen flex flex-col">
         
-        <header class="w-full mx-auto px-4 pt-4 pb-2 flex justify-center items-center sticky top-0 z-50">
-            <div class="flex items-center gap-3 sm:gap-6 bg-white/95 p-2 px-4 sm:px-5 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
-                <img src="./chapingo.png" alt="Universidad Autónoma Chapingo" class="h-16 sm:h-24 md:h-28 w-auto object-contain transition-all">
+        <header class="w-full mx-auto px-4 pt-6 pb-2 flex justify-center items-center sticky top-0 z-50 slide-up" style="animation-delay: 0.1s;">
+            <div class="flex items-center gap-4 sm:gap-8 bg-white/95 p-2 px-5 sm:px-6 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
+                <img src="./chapingo.png" alt="Universidad Autónoma Chapingo" class="h-16 sm:h-20 md:h-24 w-auto object-contain">
                 <div class="h-10 md:h-14 w-[1px] bg-slate-200"></div>
-                <img src="./ciestaam.png" alt="Posgrado CIESTAAM" class="h-8 sm:h-10 md:h-12 w-auto object-contain transition-all">
+                <img src="./ciestaam.png" alt="Posgrado CIESTAAM" class="h-8 sm:h-10 md:h-12 w-auto object-contain">
             </div>
         </header>
 
-        <main id="vista-bienvenida" class="w-full max-w-md md:max-w-3xl lg:max-w-4xl mx-auto px-4 py-8 flex-grow flex flex-col justify-center gap-6 md:gap-10 fade-in">
+        <main id="vista-bienvenida" class="w-full max-w-4xl mx-auto px-4 py-8 flex-grow flex flex-col justify-center items-center gap-8 fade-in">
             
-            <div class="text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-2 leading-tight drop-shadow-md">
+            <div class="text-center slide-up" style="animation-delay: 0.2s;">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-2 leading-tight drop-shadow-lg">
                     Transferencia Tecnológica en <br class="hidden md:block">
-                    <span class="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">Drones Agrícolas</span>
+                    <span class="bg-gradient-to-r from-blue-400 via-sky-300 to-emerald-300 bg-clip-text text-transparent">Drones Agrícolas</span>
                 </h1>
             </div>
 
-            <div class="w-full flex justify-center">
-                <div class="w-full max-w-2xl bg-white/95 backdrop-blur-xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-2xl transition-all">
-                    
-                    <div class="text-center sm:text-left mb-6">
-                        <span class="text-[10px] md:text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-50/80 px-3 py-1.5 rounded-md border border-blue-100">Cuestionario Principal</span>
-                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-3 mb-1">Maquiladores / Operadores</h2>
-                        <p class="text-slate-500 text-sm">Dirigido a prestadores de servicios de aplicación aérea y usuarios finales.</p>
+            <div class="w-full max-w-2xl bg-slate-800/60 backdrop-blur-md border border-slate-600/50 rounded-2xl p-4 md:p-5 shadow-2xl slide-up" style="animation-delay: 0.3s;">
+                <div class="flex items-start gap-3 sm:gap-4">
+                    <div class="bg-emerald-500/20 text-emerald-400 p-2.5 rounded-xl mt-0.5 border border-emerald-500/30">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
                     </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-white mb-1.5 uppercase tracking-wider">Información Estrictamente Confidencial</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Los datos recopilados en este instrumento serán procesados únicamente con fines estadísticos para la investigación académica. <strong class="text-emerald-300 font-semibold">Garantizamos el anonimato absoluto:</strong> no se publicará ni compartirá información individual, operativa o comercial de los participantes.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-5 mb-6 shadow-inner">
-                        <div class="flex items-start gap-3">
-                            <div class="bg-emerald-100 text-emerald-600 p-2 rounded-xl mt-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                            </div>
-                            <div>
-                                <h3 class="text-sm font-bold text-slate-800 mb-1">Aviso de Privacidad y Confidencialidad</h3>
-                                <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                                    Los datos recopilados en este instrumento son de carácter estrictamente confidencial. Serán procesados únicamente con fines estadísticos para la investigación. <strong class="text-slate-700">No se publicará ni compartirá información individual o comercial de los operadores.</strong>
-                                </p>
-                            </div>
-                        </div>
+            <div class="w-full max-w-2xl bg-white/95 backdrop-blur-xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-2xl slide-up" style="animation-delay: 0.4s;">
+                <div class="text-center sm:text-left mb-6">
+                    <span class="text-[10px] md:text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-100 px-3 py-1.5 rounded-md">Pilotaje · Instrumento Principal</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-3 mb-1">Maquiladores y Operadores</h2>
+                    <p class="text-slate-500 text-sm">Dirigido a prestadores de servicios de aplicación aérea y usuarios finales.</p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
+                    <div class="flex gap-2 text-xs md:text-sm font-semibold text-slate-600">
+                        <span class="bg-slate-100 px-3 py-2 rounded-xl flex items-center gap-1.5 shadow-sm"><span class="text-base">📋</span> 37 Preguntas</span>
+                        <span class="bg-slate-100 px-3 py-2 rounded-xl flex items-center gap-1.5 shadow-sm"><span class="text-base">⏱️</span> ~15 min</span>
                     </div>
-                    
-                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-slate-100">
-                        <div class="flex gap-2 text-[11px] sm:text-xs md:text-sm font-semibold text-slate-500">
-                            <span class="bg-slate-100 px-3 py-2 rounded-xl flex items-center gap-1.5"><span class="text-base">📋</span> 36 Preguntas</span>
-                            <span class="bg-slate-100 px-3 py-2 rounded-xl flex items-center gap-1.5"><span class="text-base">⏱️</span> ~15 min</span>
-                        </div>
-                        <button onclick="iniciarCuestionario()" class="w-full sm:w-auto text-center bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm md:text-base py-3.5 px-8 rounded-xl transition-all shadow-[0_8px_20px_-6px_rgba(37,99,235,0.6)] hover:shadow-[0_10px_25px_-6px_rgba(37,99,235,0.8)] hover:-translate-y-0.5">
-                            Iniciar Cuestionario
-                        </button>
-                    </div>
+                    <button onclick="iniciarCuestionario()" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm md:text-base py-3.5 px-8 rounded-xl transition-all shadow-[0_8px_20px_-6px_rgba(37,99,235,0.6)] hover:shadow-[0_10px_25px_-6px_rgba(37,99,235,0.8)] hover:-translate-y-0.5">
+                        Iniciar Cuestionario
+                    </button>
                 </div>
             </div>
         </main>
 
-        <main id="vista-cuestionario" class="w-full max-w-3xl mx-auto px-4 py-6 hidden flex-grow">
-            <div class="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 fade-in overflow-hidden">
-                <div class="bg-slate-50 p-6 sm:p-8 border-b border-slate-200 flex justify-between items-center">
+        <main id="vista-cuestionario" class="w-full max-w-4xl mx-auto px-4 py-6 hidden flex-grow fade-in">
+            <div class="bg-slate-50 rounded-3xl shadow-2xl border border-slate-200 overflow-hidden">
+                
+                <div class="bg-white p-6 sm:p-8 border-b border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div>
-                        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-1">Instrumento de investigación</h2>
-                        <p class="text-sm text-slate-500">Sus respuestas son anónimas y confidenciales.</p>
+                        <h2 class="text-2xl font-extrabold text-slate-900 mb-1">Instrumento de Evaluación</h2>
+                        <p class="text-sm text-slate-500">Escala Likert de 5 puntos y campos abiertos. Por favor, responda con honestidad.</p>
+                    </div>
+                    <div class="text-xs font-semibold text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                        Conexión Segura
                     </div>
                 </div>
 
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-                <form action="PEGA_TU_NUEVO_ENLACE_AQUI" method="POST" id="survey-form" target="hidden_iframe" onsubmit="alert('¡Muchísimas gracias! Tus respuestas han sido enviadas exitosamente.'); location.reload();">
+                <form action="PEGA_TU_NUEVO_ENLACE_AQUI" method="POST" id="survey-form" target="hidden_iframe" onsubmit="alert('¡Muchísimas gracias por su participación! Las respuestas se han guardado.'); location.reload();">
                     
-                    <div class="p-6 sm:p-8 space-y-10">
+                    <div class="p-6 sm:p-8 space-y-12">
 
                         <div class="space-y-6">
-                            <h3 class="text-xs font-bold text-blue-600 uppercase tracking-widest border-b border-blue-100 pb-2 flex items-center gap-2">
-                                <span class="text-lg">👤</span> I · Perfil del usuario
+                            <h3 class="text-sm font-extrabold text-slate-400 uppercase tracking-widest border-b-2 border-slate-200 pb-2 flex items-center gap-2">
+                                <span class="text-xl">👤</span> I · Perfil del usuario
                             </h3>
 
-                            <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="col-span-1 md:col-span-2">
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P1.</span> Nombre completo</label>
+                                    <input type="text" name="p1" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 outline-none p-3.5 shadow-sm transition-all" required>
+                                </div>
+
                                 <div>
-                                    <label class="block text-sm font-semibold text-slate-800 mb-1"><span class="bg-slate-200 text-slate-600 text-[10px] px-1.5 py-0.5 rounded mr-1">P1</span> Nombre completo</label>
-                                    <input type="text" name="nombre" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none p-3 shadow-sm transition-all" placeholder="Escriba su nombre..." required>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P2.</span> Género</label>
+                                    <select name="p2" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 outline-none p-3.5 shadow-sm transition-all appearance-none cursor-pointer">
+                                        <option value="" disabled selected>Seleccione una opción...</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Femenino">Femenino</option>
+                                        <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+                                    </select>
                                 </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P3.</span> Edad</label>
+                                    <div class="flex items-center gap-3">
+                                        <input type="number" name="p3" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 outline-none p-3.5 shadow-sm transition-all text-center">
+                                        <span class="text-sm font-medium text-slate-500">años</span>
+                                    </div>
                                 </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P4.</span> Escolaridad</label>
+                                    <input type="text" name="p4" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 outline-none p-3.5 shadow-sm transition-all" placeholder="Ej: Licenciatura, Preparatoria...">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P5.</span> Estado y Municipio</label>
+                                    <input type="text" name="p5" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 outline-none p-3.5 shadow-sm transition-all" placeholder="Ej: Sinaloa, Culiacán">
+                                </div>
+
+                                <div class="col-span-1 md:col-span-2">
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P6.</span> Cultivos en los que usa el drone</label>
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                        <input type="text" name="p6_1" class="w-full bg-white border border-slate-300 text-sm rounded-xl outline-none p-3 focus:border-blue-500" placeholder="Principal">
+                                        <input type="text" name="p6_2" class="w-full bg-white border border-slate-300 text-sm rounded-xl outline-none p-3 focus:border-blue-500" placeholder="Secundario">
+                                        <input type="text" name="p6_3" class="w-full bg-white border border-slate-300 text-sm rounded-xl outline-none p-3 focus:border-blue-500" placeholder="Terciario">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P7.</span> ¿Cuántos años lleva en esta actividad?</label>
+                                    <div class="flex items-center gap-3"><input type="number" name="p7" class="w-full bg-white border border-slate-300 text-sm rounded-xl p-3.5 outline-none focus:border-blue-500 text-center"><span class="text-sm font-medium text-slate-500">años</span></div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P8.</span> Promedio de hectáreas que trabaja al mes</label>
+                                    <div class="flex items-center gap-3"><input type="number" name="p8" class="w-full bg-white border border-slate-300 text-sm rounded-xl p-3.5 outline-none focus:border-blue-500 text-center"><span class="text-sm font-medium text-slate-500">ha/mes</span></div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mt-8 pt-6 border-t border-slate-200 flex justify-end">
-                            <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg shadow-emerald-600/30 transition-all">
-                                Enviar Respuestas
+                        <div class="space-y-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                            <h3 class="text-sm font-extrabold text-slate-400 uppercase tracking-widest border-b-2 border-slate-100 pb-2 flex items-center gap-2">
+                                <span class="text-xl">🚀</span> II · Adopción de innovaciones
+                            </h3>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="text-blue-600 mr-1">P9.</span> Cuando compré mi primer drone, la tecnología en mi zona era…</label>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+                                    <label class="cursor-pointer group"><input type="radio" name="p9" value="1" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">1</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Fui el primero, nadie la conocía</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p9" value="2" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">2</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Muy pocos la tenían</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p9" value="3" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">3</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Empezaba a verse en ranchos</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p9" value="4" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">4</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Era común y estaba probada</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p9" value="5" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">5</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Todos la usaban ya</span></div></label>
+                                </div>
+                                <div class="flex justify-between text-[10px] text-slate-400 uppercase tracking-wide mt-2 px-1"><span>Innovador</span><span>Rezagado</span></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="text-blue-600 mr-1">P10.</span> Si mañana sale un drone completamente nuevo sin probar, yo…</label>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+                                    <label class="cursor-pointer group"><input type="radio" name="p10" value="1" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">1</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Lo compro de inmediato</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p10" value="2" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">2</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Espero unos meses a ver</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p10" value="3" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">3</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Espero a que otros lo adopten</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p10" value="4" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">4</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Espero un par de años</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p10" value="5" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-blue-500 peer-checked:bg-blue-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-blue-600">5</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-blue-800 leading-tight">Solo cuando sea barato/seguro</span></div></label>
+                                </div>
+                                <div class="flex justify-between text-[10px] text-slate-400 uppercase tracking-wide mt-2 px-1"><span>Muy innovador</span><span>Conservador</span></div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-800 mb-3 flex items-center gap-2"><span class="text-blue-600">P11.</span> ¿Qué tanto influye la opinión de otros productores en su decisión de compra? <span class="bg-emerald-100 text-emerald-700 text-[9px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Nueva</span></label>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+                                    <label class="cursor-pointer group"><input type="radio" name="p11" value="1" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-emerald-500 peer-checked:bg-emerald-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-emerald-600">1</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-emerald-800 leading-tight">Nada, decido solo</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p11" value="2" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-emerald-500 peer-checked:bg-emerald-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-emerald-600">2</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-emerald-800 leading-tight">Poco</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p11" value="3" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-emerald-500 peer-checked:bg-emerald-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-emerald-600">3</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-emerald-800 leading-tight">Moderadamente</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p11" value="4" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-emerald-500 peer-checked:bg-emerald-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-emerald-600">4</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-emerald-800 leading-tight">Bastante</span></div></label>
+                                    <label class="cursor-pointer group"><input type="radio" name="p11" value="5" class="peer sr-only"><div class="h-full p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 peer-checked:border-emerald-500 peer-checked:bg-emerald-50 transition-all text-center flex flex-col items-center justify-center gap-1"><span class="text-lg font-bold text-slate-400 peer-checked:text-emerald-600">5</span><span class="text-[11px] font-medium text-slate-600 peer-checked:text-emerald-800 leading-tight">Totalmente determinante</span></div></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h3 class="text-sm font-extrabold text-slate-400 uppercase tracking-widest border-b-2 border-slate-200 pb-2 flex items-center gap-2">
+                                <span class="text-xl">🛠️</span> III · Soporte técnico y fallas
+                            </h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P12.</span> ¿Cuenta con esquema de soporte técnico continuo de la marca o distribuidor?</label>
+                                    <div class="flex gap-4">
+                                        <label class="flex-1 cursor-pointer group"><input type="radio" name="p12" value="Si" class="peer sr-only"><div class="p-3 rounded-xl border border-slate-200 bg-white text-center peer-checked:bg-blue-600 peer-checked:text-white font-medium text-sm transition-all shadow-sm">Sí</div></label>
+                                        <label class="flex-1 cursor-pointer group"><input type="radio" name="p12" value="No" class="peer sr-only"><div class="p-3 rounded-xl border border-slate-200 bg-white text-center peer-checked:bg-blue-600 peer-checked:text-white font-medium text-sm transition-all shadow-sm">No</div></label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-2"><span class="text-blue-600 mr-1">P13.</span> En caso de falla, ¿a quién acude principalmente?</label>
+                                    <select name="p13" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 p-3.5 shadow-sm outline-none cursor-pointer">
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="Distribuidor oficial donde compré">Distribuidor oficial donde compré</option>
+                                        <option value="Otro distribuidor">Otro distribuidor oficial</option>
+                                        <option value="Taller independiente">Taller independiente / particular</option>
+                                        <option value="Yo mismo">Yo mismo reparo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mt-4">
+                                <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="text-blue-600 mr-1">P14.</span> Cuando contacto al proveedor por un problema, la rapidez de respuesta efectiva es…</label>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+                                    <label class="cursor-pointer"><input type="radio" name="p14" value="1" class="peer sr-only"><div class="p-3 rounded-xl border border-slate-200 bg-slate-50 peer-checked:border-blue-500 peer-checked:bg-blue-50 text-center"><span class="block text-lg font-bold text-slate-400 peer-checked:text-blue-600">1</span><span class="text-[11px] text-slate-600">Al momento</span></div></label>
+                                    <label class="cursor-pointer"><input type="radio" name="p14" value="2" class="peer sr-only"><div class="p-3 rounded-xl border border-slate-200 bg-slate-50 peer-checked:border-blue-500 peer-checked:bg-blue-50 text-center"><span class="block text-lg font-bold text-slate-400 peer-checked:text-blue-600">2</span><span class="text-[11px] text-slate-600">El mismo día</span></div></label>
+                                    <label class="cursor-pointer"><input type="radio" name="p14" value="3" class="peer sr-only"><div class="p-3 rounded-xl border border-slate-200 bg-slate-50 peer-checked:border-blue-500 peer-checked:bg-blue-50 text-center"><span class="block text-lg font-bold text-slate-400 peer-checked:text-blue-600">3</span><span class="text-[11px] text-slate-600">Varios días</span></div></label>
+                                    <label class="cursor-pointer"><input type="radio" name="p14" value="4" class="peer sr-only"><div class="p-3 rounded-xl border border-slate-200 bg-slate-50 peer-checked:border-blue-500 peer-checked:bg-blue-50 text-center"><span class="block text-lg font-bold text-slate-400 peer-checked:text-blue-600">4</span><span class="text-[11px] text-slate-600">Más de una semana</span></div></label>
+                                    <label class="cursor-pointer"><input type="radio" name="p14" value="5" class="peer sr-only"><div class="p-3 rounded-xl border border-slate-200 bg-slate-50 peer-checked:border-blue-500 peer-checked:bg-blue-50 text-center"><span class="block text-lg font-bold text-slate-400 peer-checked:text-blue-600">5</span><span class="text-[11px] text-slate-600">Casi nunca contestan</span></div></label>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div><label class="block text-xs font-semibold text-slate-700 mb-1">P17. Distancia al taller</label><div class="flex items-center gap-2"><input type="number" name="p17" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-sm text-center outline-none focus:border-blue-500"><span class="text-xs text-slate-500">km</span></div></div>
+                                <div><label class="block text-xs font-semibold text-slate-700 mb-1">P20. Fallas en el año</label><div class="flex items-center gap-2"><input type="number" name="p20" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-sm text-center outline-none focus:border-blue-500"><span class="text-xs text-slate-500">fallas</span></div></div>
+                                <div><label class="block text-xs font-semibold text-slate-700 mb-1">P21. Días p/ diagnóstico</label><div class="flex items-center gap-2"><input type="number" name="p21" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-sm text-center outline-none focus:border-blue-500"><span class="text-xs text-slate-500">días</span></div></div>
+                                <div><label class="block text-xs font-semibold text-slate-700 mb-1">P23. Días perdidos (año)</label><div class="flex items-center gap-2"><input type="number" name="p23" class="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-sm text-center outline-none focus:border-blue-500"><span class="text-xs text-slate-500">días</span></div></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <h3 class="text-sm font-extrabold text-slate-400 uppercase tracking-widest border-b-2 border-slate-200 pb-2 flex items-center gap-2">
+                                <span class="text-xl">🎓</span> IV / V · Capacitación y Barreras
+                            </h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="text-blue-600 mr-1">P30.</span> Profundidad de capacitación (Seleccione las que le enseñaron):</label>
+                                    <div class="space-y-2 bg-white p-4 rounded-xl border border-slate-200">
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Limpiar filtros y mantenimiento básico</span></label>
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Calibrar sensores, bombas y boquillas</span></label>
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Cuidados de baterías y generador</span></label>
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Reglas de aviación AFAC / Emergencias</span></label>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="text-blue-600 mr-1">P34.</span> La principal barrera para el uso pleno de esta tecnología es…</label>
+                                    <select name="p34" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-blue-500 p-3.5 shadow-sm outline-none cursor-pointer">
+                                        <option value="" disabled selected>Seleccione barrera principal...</option>
+                                        <option value="Costo">Alto costo de adquisición / mantenimiento</option>
+                                        <option value="Capacitacion">Falta de capacitación profunda</option>
+                                        <option value="Piezas">Dificultad para conseguir refacciones</option>
+                                        <option value="Normatividad">Trabas por normatividad (AFAC)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <label class="block text-sm font-semibold text-slate-800 mb-2 flex items-center gap-2"><span class="text-blue-600">P37.</span> ¿Hay algún otro comentario, queja o sugerencia que le gustaría agregar sobre su experiencia técnica o comercial con los drones agrícolas? <span class="bg-purple-100 text-purple-700 text-[9px] px-1.5 py-0.5 rounded uppercase font-bold tracking-wider">Cierre</span></label>
+                                <textarea name="p37" rows="4" class="w-full bg-white border border-slate-300 text-sm rounded-xl focus:border-purple-500 outline-none p-4 shadow-sm transition-all" placeholder="Escriba aquí sus comentarios finales..."></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-slate-200 flex justify-end">
+                            <button type="submit" class="bg-gradient-to-r from-blue-600 to-sky-500 hover:from-blue-700 hover:to-sky-600 text-white font-bold text-lg py-4 px-10 rounded-xl shadow-[0_10px_20px_-5px_rgba(14,165,233,0.5)] transition-all hover:-translate-y-1">
+                                Enviar Respuestas ✓
                             </button>
                         </div>
                     </div>
@@ -111,13 +285,13 @@
             </div>
         </main>
 
-        <footer class="w-full mt-auto bg-slate-950/80 backdrop-blur-xl border-t border-white/10 py-5 z-20">
+        <footer class="w-full mt-auto bg-slate-950/90 backdrop-blur-xl border-t border-slate-800 py-6 z-20">
             <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                 <div>
-                    <p class="text-slate-200 font-semibold text-sm">Ing. Ivette Itzel Avendaño Torres</p>
+                    <p class="text-slate-100 font-semibold text-sm tracking-wide">Ing. Ivette Itzel Avendaño Torres</p>
                     <p class="text-slate-400 text-xs mt-1">Estudiante de Posgrado · CIESTAAM, Universidad Autónoma Chapingo</p>
                 </div>
-                <a href="mailto:tu.correo@ejemplo.com" class="flex items-center gap-2 text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl transition-all text-xs font-medium">
+                <a href="mailto:tu.correo@ejemplo.com" class="flex items-center justify-center gap-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 px-5 py-2.5 rounded-xl transition-all text-xs font-medium shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                     tu.correo@ejemplo.com
                 </a>
