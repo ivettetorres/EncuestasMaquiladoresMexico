@@ -59,9 +59,8 @@
 
             <div class="w-full max-w-2xl bg-white/95 backdrop-blur-xl border border-white/20 rounded-3xl p-6 md:p-8 shadow-2xl slide-up" style="animation-delay: 0.4s;">
                 <div class="text-center sm:text-left mb-6">
-                    <span class="text-[10px] md:text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-100 px-3 py-1.5 rounded-md">Pilotaje · Instrumento Principal</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-3 mb-1">Maquiladores y Operadores</h2>
-                    <p class="text-slate-500 text-sm">Dirigido a prestadores de servicios de aplicación aérea y usuarios finales.</p>
+                    <span class="text-[10px] md:text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-100 px-3 py-1.5 rounded-md">Pilotaje</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-3 mb-1">MDirigido a prestadores de servicios de aplicación aérea</h2>
                 </div>
                 
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
@@ -91,7 +90,7 @@
                 </div>
 
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-                <form action="PEGA_TU_NUEVO_ENLACE_AQUI" method="POST" id="survey-form" target="hidden_iframe" onsubmit="alert('¡Muchísimas gracias por su participación! Las respuestas se han guardado.'); location.reload();">
+                <form action="https://script.google.com/macros/s/AKfycbza-4jG7qlhZ2_ApaRVR8-IhrSvdz4S3MH9dp1OyrkzgVmflcY22yW082dMxWJyR1y-/exec" method="POST" id="survey-form" target="hidden_iframe" onsubmit="alert('¡Muchísimas gracias por su participación! Las respuestas se han guardado exitosamente en la base de datos.'); location.reload();">
                     
                     <div class="p-6 sm:p-8 space-y-12">
 
@@ -249,10 +248,10 @@
                                 <div>
                                     <label class="block text-sm font-semibold text-slate-800 mb-3"><span class="text-blue-600 mr-1">P30.</span> Profundidad de capacitación (Seleccione las que le enseñaron):</label>
                                     <div class="space-y-2 bg-white p-4 rounded-xl border border-slate-200">
-                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Limpiar filtros y mantenimiento básico</span></label>
-                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Calibrar sensores, bombas y boquillas</span></label>
-                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Cuidados de baterías y generador</span></label>
-                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Reglas de aviación AFAC / Emergencias</span></label>
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="p30_1" value="Si" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Limpiar filtros y mantenimiento básico</span></label>
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="p30_2" value="Si" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Calibrar sensores, bombas y boquillas</span></label>
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="p30_3" value="Si" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Cuidados de baterías y generador</span></label>
+                                        <label class="flex items-center gap-3 cursor-pointer"><input type="checkbox" name="p30_4" value="Si" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"><span class="text-sm text-slate-700">Reglas de aviación AFAC / Emergencias</span></label>
                                     </div>
                                 </div>
                                 
@@ -288,12 +287,12 @@
         <footer class="w-full mt-auto bg-slate-950/90 backdrop-blur-xl border-t border-slate-800 py-6 z-20">
             <div class="max-w-4xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                 <div>
-                    <p class="text-slate-100 font-semibold text-sm tracking-wide">Ing. Ivette Itzel Avendaño Torres</p>
+                    <p class="text-slate-100 font-semibold text-sm tracking-wide">Ivette Itzel Avendaño Torres</p>
                     <p class="text-slate-400 text-xs mt-1">Estudiante de Posgrado · CIESTAAM, Universidad Autónoma Chapingo</p>
                 </div>
                 <a href="mailto:tu.correo@ejemplo.com" class="flex items-center justify-center gap-2 text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 px-5 py-2.5 rounded-xl transition-all text-xs font-medium shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                    tu.correo@ejemplo.com
+                    ivettei.avendano@ciestaam.edu.mx
                 </a>
             </div>
         </footer>
